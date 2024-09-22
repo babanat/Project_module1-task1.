@@ -1,5 +1,5 @@
 import { descriptionsPhoto, messagesComment, minLikes, maxLikes, maxComments, maxAvatars } from './constants.js';
-import { randomNumber } from './randomFunction.js';
+import { randomNumber } from './util.js';
 
 export function generateId(index) {
   return index + 1;
