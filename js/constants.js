@@ -19,5 +19,6 @@ export const descriptionsPhoto = [
   
   export const minLikes = 15;
   export const maxLikes = 200;
-  export const maxComments = 3;
+  export const maxComments = 15;
   export const maxAvatars = 6;
+  export const commentsPerLoad = 5;
