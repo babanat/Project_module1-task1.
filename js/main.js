@@ -1,7 +1,7 @@
 import { generatePhotos } from './photo.js';
 import { showBigPicture } from './bigPicture.js';
 import { addCommentTemplate } from './template.js';
-import { validateHashtags, validateComment } from './form.js';
+import { allValidation } from './form.js';
 
 const picturesContainer = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -32,10 +32,8 @@ const photos = generatePhotos(25);
 renderPhotos(photos);
 
 const formElement = document.querySelector('.img-upload__form');
-formElement.addEventListener('input', () => {
-  validateHashtags();
-  validateComment();
-});
+formElement.addEventListener('input', allValidation);
+
 
 const closeButton = document.querySelector('.img-upload__cancel');
 closeButton.addEventListener('click', () => {
