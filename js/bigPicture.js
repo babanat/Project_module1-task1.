@@ -10,10 +10,9 @@ const descriptionElement = bigPictureElement.querySelector('.social__caption');
 const bodyElement = document.querySelector('body');
 const closeButton = bigPictureElement.querySelector('.big-picture__cancel');
 const loadMoreButton = bigPictureElement.querySelector('.comments-loader');
-let currentCommentIndex = 0;  // Индекс первого неотображённого комментария
-let commentsData = [];        // Массив комментариев фотографии
+let currentCommentIndex = 0;  
+let commentsData = [];       
 
-// Функция для показа большого изображения
 function showBigPicture(photo) {
   bigPictureElement.classList.remove('hidden');
   bodyElement.classList.add('modal-open');
@@ -23,38 +22,37 @@ function showBigPicture(photo) {
   commentsCount.textContent = photo.comments.length;
   descriptionElement.textContent = photo.description;
 
-  // Инициализация комментариев
   currentCommentIndex = 0;
   commentsData = photo.comments;
 
-  commentsContainer.innerHTML = '';  // Очищаем старые комментарии
-  loadMoreComments();  // Загружаем первые 5 комментариев
-  checkCommentsCount(commentsData); // Добавляем проверку комментариев при открытии
-  toggleCommentLoadButton();  // Проверяем, нужно ли показывать кнопку "Загрузить ещё"
+  commentsContainer.innerHTML = '';  
+  loadMoreComments();  
+  checkCommentsCount(commentsData); 
+  toggleCommentLoadButton();  
 
   document.addEventListener('keydown', onDocumentKeyDown);
 }
 
-// Функция для загрузки комментариев по 5 штук
+
 function loadMoreComments() {
   const commentsToLoad = commentsData.slice(currentCommentIndex, currentCommentIndex + commentsPerLoad);
-  currentCommentIndex += commentsPerLoad;  // Увеличиваем индекс для следующей порции
+  currentCommentIndex += commentsPerLoad;  
   renderComments(commentsToLoad);
-   // Обновляем состояние строки с количеством комментариев
+   
    checkCommentsCount(commentsData);
-   toggleCommentLoadButton();  // Обновляем состояние кнопки загрузки комментариев
+   toggleCommentLoadButton();  
 }
 
-// Функция для управления кнопкой "Загрузить ещё"
+
 function toggleCommentLoadButton() {
   if (currentCommentIndex >= commentsData.length) {
-    loadMoreButton.classList.add('hidden');  // Скрыть кнопку, если все комментарии загружены
+    loadMoreButton.classList.add('hidden');  
   } else {
-    loadMoreButton.classList.remove('hidden');  // Показать кнопку, если есть ещё комментарии
+    loadMoreButton.classList.remove('hidden');  
   }
 }
 
-// Функция для рендеринга комментариев
+
 function renderComments(comments) {
   const fragment = document.createDocumentFragment();
   comments.forEach(comment => {
@@ -64,7 +62,7 @@ function renderComments(comments) {
   commentsContainer.appendChild(fragment);
 }
 
-// Функция для создания DOM-элемента комментария
+
 function createCommentElement(comment) {
   const commentTemplate = document.querySelector('#comment-template').content.querySelector('.social__comment');
   const commentElement = commentTemplate.cloneNode(true);
@@ -76,14 +74,13 @@ function createCommentElement(comment) {
   return commentElement;
 }
 
-// Функция для закрытия большого изображения
+
 function closeBigPicture() {
   bigPictureElement.classList.add('hidden');
   bodyElement.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeyDown);
 }
 
-// Обработчик закрытия окна по клавише Esc
 function onDocumentKeyDown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
@@ -103,10 +100,8 @@ function checkCommentsCount(comments) {
   }
 }
 
-// Обработчик на кнопку "Загрузить ещё"
 loadMoreButton.addEventListener('click', loadMoreComments);
 
-// Обработчик на кнопку закрытия большого фото
 closeButton.addEventListener('click', closeBigPicture);
 
 export { showBigPicture };
