@@ -106,7 +106,3 @@ closeButton.addEventListener('click', closeBigPicture);
 
 export { showBigPicture };
 
-
-
-
-
