@@ -8,7 +8,7 @@ export const descriptionsPhoto = [
     "Настоящая магия кадра.",
   ];
   
-  export const messagesComment = [
+  export const messagesComments = [
     "Все отлично!",
     "В общем, все неплохо. Но не все.",
     "Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.",
