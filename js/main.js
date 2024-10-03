@@ -2,7 +2,6 @@ import { generatePhotos } from './photo.js';
 import { showBigPicture } from './bigPicture.js';
 import { addCommentTemplate } from './template.js';
 import { allValidation } from './form.js';
-//import { updateScale, DEFAULT_SCALE, resetScale } from './scale.js';
 
 
 
@@ -40,6 +39,6 @@ formElement.addEventListener('input', allValidation);
 
 const closeButton = document.querySelector('.img-upload__cancel');
 closeButton.addEventListener('click', () => {
-  formElement.reset(); 
+  formElement.reset();
 });
 
