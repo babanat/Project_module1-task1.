@@ -1,3 +1,5 @@
+import{ resetScale } from './scale.js';
+
 const formElement = document.querySelector('.img-upload__form');
 const hashtagInput = formElement.querySelector('.text__hashtags');
 const commentInput = formElement.querySelector('.text__description');
@@ -13,6 +15,7 @@ function openForm() {
 
 function closeForm() {
   formElement.reset();
+  resetScale();
   overlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeyDown);
