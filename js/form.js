@@ -4,10 +4,6 @@ const commentInput = formElement.querySelector('.text__description');
 const fileInput = document.querySelector('#upload-file');
 const overlay = document.querySelector('.img-upload__overlay');
 const closeButton = document.querySelector('.img-upload__cancel');
-const commentsCountContainer = document.querySelector('.social__comment-count');
-const loadMoreButton = document.querySelector('.comments-loader');
-let currentCommentsCount = 0;
-let commentsData = [];
 
 function openForm() {
   overlay.classList.remove('hidden');
@@ -82,34 +78,6 @@ function validateComment() {
   return true;
 }
 
-function checkCommentsCount(comments) {
-  if (comments.length === 0) {
-    commentsCountContainer.classList.add('hidden');
-    loadMoreButton.classList.add('hidden');
-  } else {
-    commentsCountContainer.classList.remove('hidden');
-    const visibleCommentsCount = Math.min(comments.length, currentCommentsCount);
-    commentsCountContainer.textContent = `${visibleCommentsCount} из ${comments.length} комментариев`;
-
-    if (visibleCommentsCount === comments.length) {
-      loadMoreButton.classList.add('hidden');
-    } else {
-      loadMoreButton.classList.remove('hidden');
-    }
-  }
-}
-
-function loadMoreComments() {
-  currentCommentsCount += 5;
-  checkCommentsCount(commentsData);
-}
-
-function showBigPicture(photo) {
-  commentsData = photo.comments;
-  currentCommentsCount = Math.min(commentsData.length, 5);
-  checkCommentsCount(commentsData);
-}
-
 function allValidation() {
   return validateHashtags() && validateComment();
 }
@@ -126,11 +94,7 @@ formElement.addEventListener('input', () => {
   allValidation();
 });
 
-loadMoreButton.addEventListener('click', () => {
-  loadMoreComments();
-});
-
-export { allValidation, openForm, closeForm, showBigPicture };
+export { allValidation, openForm, closeForm };
 
 
 
