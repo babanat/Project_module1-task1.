@@ -3,7 +3,7 @@ import { showBigPicture } from './bigPicture.js';
 import { addCommentTemplate } from './template.js';
 import { allValidation } from './form.js';
 import { resetScale } from './scale.js'; 
-
+import { init } from './imageEffects.js';
 
 
 const picturesContainer = document.querySelector('.pictures');
@@ -43,5 +43,6 @@ const closeButton = document.querySelector('.img-upload__cancel');
 closeButton.addEventListener('click', () => {
   formElement.reset();
   resetScale();
+  init(); // Сбрасываем эффект при закрытии формы
 });
 

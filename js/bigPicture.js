@@ -1,6 +1,7 @@
 import { commentsPerLoad } from './constants.js';
 import{ resetScale } from './scale.js';
 
+
 const bigPictureElement = document.querySelector('.big-picture');
 const bigPictureImg = bigPictureElement.querySelector('.big-picture__img img');
 const likesCount = bigPictureElement.querySelector('.likes-count');
