@@ -3,6 +3,8 @@ import { showBigPicture } from './bigPicture.js';
 import { addCommentTemplate } from './template.js';
 import { allValidation } from './form.js';
 
+
+
 const picturesContainer = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
@@ -37,5 +39,6 @@ formElement.addEventListener('input', allValidation);
 
 const closeButton = document.querySelector('.img-upload__cancel');
 closeButton.addEventListener('click', () => {
-  formElement.reset(); 
+  formElement.reset();
 });
+
