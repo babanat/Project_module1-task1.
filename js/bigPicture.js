@@ -92,17 +92,14 @@ function checkCommentsCount(comments) {
   const totalCommentsCount = comments.length;
   const visibleCommentsCount = Math.min(currentCommentIndex, totalCommentsCount);
 
-  // Обновляем текст с количеством отображаемых комментариев
   commentsCountContainer.textContent = `${visibleCommentsCount} из ${totalCommentsCount} комментариев`;
 
-  // Проверка, нужно ли скрывать кнопку "Загрузить ещё"
   if (visibleCommentsCount >= totalCommentsCount) {
     loadMoreButton.classList.add('hidden');
   } else {
     loadMoreButton.classList.remove('hidden');
   }
 
-  // Если комментариев меньше или равно 5, скрываем счетчик комментариев
   if (totalCommentsCount <= 5) {
     commentsCountContainer.classList.add('hidden');
   } else {
