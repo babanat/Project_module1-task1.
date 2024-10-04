@@ -97,7 +97,7 @@ formElement.addEventListener('input', () => {
   allValidation();
 });
 
-export { allValidation, openForm, closeForm };
+export { allValidation, openForm, closeForm, closeButton };
 
 
 

@@ -1,8 +1,8 @@
+import { closeButton } from './form.js';
 const image = document.querySelector('.img-upload__preview img');
 const sliderElement = document.querySelector('.effect-level__slider');
 const effectLevelValue = document.querySelector('.effect-level__value');
 const effectRadios = document.querySelectorAll('.effects__radio');
-const closeButton = document.querySelector('.img-upload__cancel'); // Предположим, это кнопка закрытия
 
 
 const effects = {
