@@ -51,13 +51,11 @@ const effects = {
 };
 // Функция для инициализации слайдера
 function initSlider() {
-    // Проверяем, был ли уже инициализирован слайдер
+    
     if (sliderElement.noUiSlider) {
-      // Уничтожаем предыдущий слайдер, если он уже существует
       sliderElement.noUiSlider.destroy();
     }
     
-    // Инициализируем новый слайдер
     noUiSlider.create(sliderElement, {
       start: 100,
       tooltips: true,
@@ -76,27 +74,6 @@ function initSlider() {
       }
     });
   }
-  
-// // Функция для инициализации слайдера
-// function initSlider() {
-//   noUiSlider.create(sliderElement, {
-//     start: 100,
-//     tooltips: true,
-//     range: {
-//       'min': 0,
-//       'max': 100
-//     },
-//     step: 1,
-//     format: {
-//       to: function (value) {
-//         return parseFloat(value).toFixed(2);
-//       },
-//       from: function (value) {
-//         return parseFloat(value);
-//       }
-//     }
-//   });
-// }
 
 function updateSliderOptions(effect) {
   const effectSettings = effects[effect];

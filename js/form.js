@@ -1,4 +1,4 @@
-import{ resetScale } from './scale.js';
+import{ resetScale, imagePreview } from './scale.js';
 
 const formElement = document.querySelector('.img-upload__form');
 const hashtagInput = formElement.querySelector('.text__hashtags');
@@ -89,8 +89,19 @@ closeButton.addEventListener('click', () => {
   closeForm();
 });
 
+// Загрузка нового изображения
 fileInput.addEventListener('change', () => {
-  openForm();
+  const file = fileInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      imagePreview.src = event.target.result; // Отображаем загруженное изображение
+    };
+
+    reader.readAsDataURL(file); // Чтение файла в формате URL
+  }
+  openForm(); // Открыть форму после выбора изображения
 });
 
 formElement.addEventListener('input', () => {

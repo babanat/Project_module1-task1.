@@ -35,4 +35,4 @@ function resetScale() {
 smallerButton.addEventListener('click', onSmallerButtonClick);
 biggerButton.addEventListener('click', onBiggerButtonClick);
 
-export { resetScale };  // сброса масшмаба
+export { resetScale, imagePreview };  // сброса масшмаба
