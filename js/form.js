@@ -89,19 +89,19 @@ closeButton.addEventListener('click', () => {
   closeForm();
 });
 
-// Загрузка нового изображения
+// Загрузка new img
 fileInput.addEventListener('change', () => {
   const file = fileInput.files[0];
   if (file) {
     const reader = new FileReader();
 
     reader.onload = function (event) {
-      imagePreview.src = event.target.result; // Отображаем загруженное изображение
+      imagePreview.src = event.target.result; // show img
     };
 
-    reader.readAsDataURL(file); // Чтение файла в формате URL
+    reader.readAsDataURL(file); // read file в форм URL
   }
-  openForm(); // Открыть форму после выбора изображения
+  openForm(); // Оpen form after choose img
 });
 
 formElement.addEventListener('input', () => {
