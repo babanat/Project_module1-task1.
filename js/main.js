@@ -4,7 +4,7 @@ import { addCommentTemplate } from './template.js';
 import { allValidation, closeButton } from './form.js';
 import { resetScale } from './scale.js'; 
 import { init } from './imageEffects.js';
-import { initLoadFilters, showFilters} from './loadimageEffects.js';
+import { initLoadFilters, showFilters} from './buttonsLoadimages.js';
 
 
 const picturesContainer = document.querySelector('.pictures');
