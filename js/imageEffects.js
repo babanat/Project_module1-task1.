@@ -1,5 +1,6 @@
 import { closeButton } from './form.js';
-const image = document.querySelector('.img-upload__preview img');
+import{ imagePreview } from './scale.js';
+
 const sliderElement = document.querySelector('.effect-level__slider');
 const effectLevelValue = document.querySelector('.effect-level__value');
 const effectRadios = document.querySelectorAll('.effects__radio');
@@ -91,14 +92,14 @@ function updateSliderOptions(effect) {
 function updateImageFilter(effect, value) {
   const effectSettings = effects[effect];
   effectLevelValue.value = value; 
-  image.style.filter = `${effectSettings.filter}(${value}${effectSettings.unit})`; 
+  imagePreview.style.filter = `${effectSettings.filter}(${value}${effectSettings.unit})`; 
 }
 
 
 function applyEffect(effect) {
   if (effect === 'none') {
     sliderElement.classList.add('hidden'); 
-    image.style.filter = ''; 
+    imagePreview.style.filter = ''; 
     effectLevelValue.value = ''; 
   } else {
     sliderElement.classList.remove('hidden'); 

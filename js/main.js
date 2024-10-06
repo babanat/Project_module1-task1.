@@ -4,6 +4,7 @@ import { addCommentTemplate } from './template.js';
 import { allValidation, closeButton } from './form.js';
 import { resetScale } from './scale.js'; 
 import { init } from './imageEffects.js';
+import { initLoadFilters, showFilters} from './loadimageEffects.js';
 
 
 const picturesContainer = document.querySelector('.pictures');
@@ -33,6 +34,8 @@ function renderPhotos(photos) {
 
 const photos = generatePhotos(25);
 renderPhotos(photos);
+showFilters();
+initLoadFilters();
 
 const formElement = document.querySelector('.img-upload__form');
 formElement.addEventListener('input', allValidation);
@@ -42,4 +45,4 @@ closeButton.addEventListener('click', () => {
   resetScale();
   init(); // Сбрасываем эффект при закрытии формы
 });
-
+export {renderPhotos, picturesContainer, photos};
