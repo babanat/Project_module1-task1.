@@ -1,3 +1,5 @@
+import{ resetScale, imagePreview } from './scale.js';
+
 const formElement = document.querySelector('.img-upload__form');
 const hashtagInput = formElement.querySelector('.text__hashtags');
 const commentInput = formElement.querySelector('.text__description');
@@ -13,6 +15,7 @@ function openForm() {
 
 function closeForm() {
   formElement.reset();
+  resetScale();
   overlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeyDown);
@@ -86,15 +89,26 @@ closeButton.addEventListener('click', () => {
   closeForm();
 });
 
+// Загрузка new img
 fileInput.addEventListener('change', () => {
-  openForm();
+  const file = fileInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+      imagePreview.src = event.target.result; // show img
+    };
+
+    reader.readAsDataURL(file); // read file в форм URL
+  }
+  openForm(); // Оpen form after choose img
 });
 
 formElement.addEventListener('input', () => {
   allValidation();
 });
 
-export { allValidation, openForm, closeForm };
+export { allValidation, openForm, closeForm, closeButton };
 
 
 

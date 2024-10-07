@@ -1,8 +1,10 @@
 import { generatePhotos } from './photo.js';
 import { showBigPicture } from './bigPicture.js';
 import { addCommentTemplate } from './template.js';
-import { allValidation } from './form.js';
-
+import { allValidation, closeButton } from './form.js';
+import { resetScale } from './scale.js'; 
+import { init } from './imageEffects.js';
+import { initLoadFilters, showFilters} from './buttonsLoadimages.js';
 
 
 const picturesContainer = document.querySelector('.pictures');
@@ -32,13 +34,15 @@ function renderPhotos(photos) {
 
 const photos = generatePhotos(25);
 renderPhotos(photos);
+showFilters();
+initLoadFilters();
 
 const formElement = document.querySelector('.img-upload__form');
 formElement.addEventListener('input', allValidation);
 
-
-const closeButton = document.querySelector('.img-upload__cancel');
 closeButton.addEventListener('click', () => {
   formElement.reset();
+  resetScale();
+  init(); // Сбрасываем эффект при закрытии формы
 });
-
+export {renderPhotos, picturesContainer, photos};

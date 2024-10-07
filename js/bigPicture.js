@@ -1,4 +1,6 @@
 import { commentsPerLoad } from './constants.js';
+import{ resetScale } from './scale.js';
+
 
 const bigPictureElement = document.querySelector('.big-picture');
 const bigPictureImg = bigPictureElement.querySelector('.big-picture__img img');
@@ -77,6 +79,7 @@ function createCommentElement(comment) {
 
 function closeBigPicture() {
   bigPictureElement.classList.add('hidden');
+  resetScale();
   bodyElement.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeyDown);
 }

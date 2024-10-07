@@ -21,6 +21,7 @@
     "npm": "6.x"
   },
   "dependencies": {
-    "browser-sync-client": "3.0.3"
+    "browser-sync-client": "3.0.3",
+    "nouislider": "^15.8.1"
   }
 }

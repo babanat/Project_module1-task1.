@@ -1,4 +1,4 @@
-import { descriptionsPhoto, messagesComment, minLikes, maxLikes, maxComments, maxAvatars } from './constants.js';
+import { descriptionsPhoto, messagesComments, minLikes, maxLikes, maxComments, maxAvatars } from './constants.js';
 import { randomNumber } from './util.js';
 
 export function generateId(index) {
@@ -26,7 +26,7 @@ export function generateAvatar() {
 }
 
 export function generateMessage() {
-  return messagesComment[randomNumber(0, messagesComment.length - 1)];
+  return messagesComments[randomNumber(0, messagesComments.length - 1)];
 }
 
 export function createComment(index) {
