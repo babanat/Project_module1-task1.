@@ -4,8 +4,7 @@ const imgFilters = document.querySelector(".img-filters");
 const buttonFilterDefault = document.querySelector("#filter-default");
 const buttonFilterRandom = document.querySelector("#filter-random");
 const buttonFilterDiscussed = document.querySelector("#filter-discussed");
-// const tittleFilter = document.querySelector(".img-filters__title");
-// tittleFilter.classList.remove = ("visually-hidden");
+
 
 const clearPhotos = () => {
   picturesContainer.innerHTML = "";
