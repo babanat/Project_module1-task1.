@@ -43,9 +43,18 @@ const filterButtons = [
   },
 ];
 
+// Функция "debounce" для устранения дребезга
+function debounce(func, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
 const initLoadFilters = () => {
   filterButtons.forEach(({ id, handler }) => {
-    id.addEventListener("click", handler);
+    id.addEventListener("click", debounce(handler, 600));
   });
 };
 
